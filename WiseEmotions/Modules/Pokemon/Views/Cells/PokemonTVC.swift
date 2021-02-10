@@ -90,6 +90,8 @@ final class PokemonTVC: UITableViewCell {
     }
 }
 
+// MARK: - MediaObserver
+
 extension PokemonTVC: MediaObserver {
     func media(_ media: Media, didUpdateStatus status: Media.Status) {
         guard media == self.media else { return }

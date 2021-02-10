@@ -41,7 +41,7 @@ final class PokemonCoordinator: Coordinator {
 
 extension PokemonCoordinator: PokemonVMDelegate {
     func pokemonVM(_ viewModel: PokemonVM, didSelectPokemon pokemon: Pokemon) {
-        let pokemonDetailVC = factory.makePokemonDetailVC(with: pokemon, delegate: self)
+        let pokemonDetailVC = factory.makePokemonDetailVC(with: pokemon)
         if #available(iOS 13.0, *) {
             pokemonDetailVC.modalPresentationStyle = .automatic
             navigationController.present(BaseNavigationVC(rootViewController: pokemonDetailVC),
@@ -51,10 +51,4 @@ extension PokemonCoordinator: PokemonVMDelegate {
                                                     animated: true)
         }
     }
-}
-
-// MARK: -
-
-extension PokemonCoordinator: PokemonDetailVMDelegate {
-    
 }

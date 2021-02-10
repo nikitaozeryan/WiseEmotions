@@ -44,7 +44,6 @@ final class PokemonVM: UseCasesConsumer {
     
     func selectPokemonEntity(_ pokemonEntity: PokemonEntity) {
         fetchPokemonInfo.apply(Pokemon(from: pokemonEntity)).start()
-//        delegate?.pokemonVM(self, didSelectPokemon: Pokemon(from: pokemonEntity))
     }
     
     // MARK: - Private methods

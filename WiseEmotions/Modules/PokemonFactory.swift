@@ -9,7 +9,7 @@ import Foundation
 
 protocol PokemonFactoryProtocol {
     func makePokemonVC(delegate: PokemonVMDelegate) -> PokemonVC
-    func makePokemonDetailVC(with pokemon: Pokemon, delegate: PokemonDetailVMDelegate) -> PokemonDetailVC
+    func makePokemonDetailVC(with pokemon: Pokemon) -> PokemonDetailVC
 }
 
 final class PokemonFactory: ModuleFactory, PokemonFactoryProtocol {
@@ -17,7 +17,7 @@ final class PokemonFactory: ModuleFactory, PokemonFactoryProtocol {
         makeController { $0.viewModel = PokemonVM(useCases: useCases, delegate: delegate) }
     }
     
-    func makePokemonDetailVC(with pokemon: Pokemon, delegate: PokemonDetailVMDelegate) -> PokemonDetailVC {
-        makeController { $0.viewModel = PokemonDetailVM(pokemon: pokemon, useCases: useCases, delegate: delegate) }
+    func makePokemonDetailVC(with pokemon: Pokemon) -> PokemonDetailVC {
+        makeController { $0.viewModel = PokemonDetailVM(pokemon: pokemon, useCases: useCases) }
     }
 }

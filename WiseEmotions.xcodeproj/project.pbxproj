@@ -31,7 +31,6 @@
 		8F0FA24325D00C0F00E0CC91 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8F0FA24225D00C0F00E0CC91 /* Alamofire */; };
 		8F2EC5DB25D0889E00F616C5 /* API+Pokemons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2EC5DA25D0889E00F616C5 /* API+Pokemons.swift */; };
 		8F2EC5E425D0892F00F616C5 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2EC5E325D0892F00F616C5 /* API.swift */; };
-		8F74648125D0194700E166FC /* ReactiveSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8F74648025D0194700E166FC /* ReactiveSwift */; };
 		8F74648725D019A800E166FC /* ReactiveCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 8F74648625D019A800E166FC /* ReactiveCocoa */; };
 		8F74656B25D01A9000E166FC /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F74649F25D01A9000E166FC /* CoreDataStack.swift */; };
 		8F74656E25D01A9000E166FC /* CoreDataPersistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7464A225D01A9000E166FC /* CoreDataPersistable.swift */; };
@@ -150,6 +149,7 @@
 		8F74673625D076A400E166FC /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F74673525D076A400E166FC /* ActivityView.swift */; };
 		8F74673C25D078E900E166FC /* PokemonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F74673B25D078E900E166FC /* PokemonView.swift */; };
 		8F77FCD925D2A272005A29D5 /* PokemonTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F77FCD825D2A272005A29D5 /* PokemonTVC.swift */; };
+		8F88232E25D4031900842DA2 /* ReactiveSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8F88232D25D4031900842DA2 /* ReactiveSwift */; };
 		8F8F9D0925D33B2600AC0B7E /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F9D0825D33B2600AC0B7E /* DetailHeaderView.swift */; };
 		8F8F9D1025D33E3700AC0B7E /* PokemonAvatarTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F9D0F25D33E3700AC0B7E /* PokemonAvatarTVC.swift */; };
 		8F8F9D1825D33E6200AC0B7E /* PokemonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F9D1725D33E6200AC0B7E /* PokemonDetailView.swift */; };
@@ -359,8 +359,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F0FA24325D00C0F00E0CC91 /* Alamofire in Frameworks */,
+				8F88232E25D4031900842DA2 /* ReactiveSwift in Frameworks */,
 				8F74648725D019A800E166FC /* ReactiveCocoa in Frameworks */,
-				8F74648125D0194700E166FC /* ReactiveSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1160,8 +1160,8 @@
 			name = WiseEmotions;
 			packageProductDependencies = (
 				8F0FA24225D00C0F00E0CC91 /* Alamofire */,
-				8F74648025D0194700E166FC /* ReactiveSwift */,
 				8F74648625D019A800E166FC /* ReactiveCocoa */,
+				8F88232D25D4031900842DA2 /* ReactiveSwift */,
 			);
 			productName = WiseEmotions;
 			productReference = 8F0FA20825D0064E00E0CC91 /* WiseEmotions.app */;
@@ -1236,8 +1236,8 @@
 			mainGroup = 8F0FA1FF25D0064E00E0CC91;
 			packageReferences = (
 				8F0FA24125D00C0F00E0CC91 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				8F74647F25D0194700E166FC /* XCRemoteSwiftPackageReference "ReactiveSwift" */,
 				8F74648525D019A800E166FC /* XCRemoteSwiftPackageReference "ReactiveCocoa" */,
+				8F88232C25D4031900842DA2 /* XCRemoteSwiftPackageReference "ReactiveSwift" */,
 			);
 			productRefGroup = 8F0FA20925D0064E00E0CC91 /* Products */;
 			projectDirPath = "";
@@ -1779,20 +1779,20 @@
 				minimumVersion = 5.2.0;
 			};
 		};
-		8F74647F25D0194700E166FC /* XCRemoteSwiftPackageReference "ReactiveSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveCocoa/ReactiveSwift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.5.0;
-			};
-		};
 		8F74648525D019A800E166FC /* XCRemoteSwiftPackageReference "ReactiveCocoa" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveCocoa/ReactiveCocoa.git";
 			requirement = {
 				branch = master;
 				kind = branch;
+			};
+		};
+		8F88232C25D4031900842DA2 /* XCRemoteSwiftPackageReference "ReactiveSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveCocoa/ReactiveSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1803,15 +1803,15 @@
 			package = 8F0FA24125D00C0F00E0CC91 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		8F74648025D0194700E166FC /* ReactiveSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8F74647F25D0194700E166FC /* XCRemoteSwiftPackageReference "ReactiveSwift" */;
-			productName = ReactiveSwift;
-		};
 		8F74648625D019A800E166FC /* ReactiveCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8F74648525D019A800E166FC /* XCRemoteSwiftPackageReference "ReactiveCocoa" */;
 			productName = ReactiveCocoa;
+		};
+		8F88232D25D4031900842DA2 /* ReactiveSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F88232C25D4031900842DA2 /* XCRemoteSwiftPackageReference "ReactiveSwift" */;
+			productName = ReactiveSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 
