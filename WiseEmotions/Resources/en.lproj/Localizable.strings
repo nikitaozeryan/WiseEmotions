@@ -1,0 +1,33 @@
+/* 
+  Localizable.strings
+  WiseEmotions
+
+  Created by Nikita Ozerian on 07.02.2021.
+  
+*/
+
+// MARK: - Common
+
+"loading" = "Loading";
+"error" = "Error";
+"ok" = "ok";
+
+// MARK: - PockemonVC
+
+"pokemonVC.title" = "Pokemons";
+
+// MARK: - PokemonDetailVC
+
+"pokemon.detail.stats" = "Stats";
+"pokemon.detail.types" = "Types";
+
+// MARK: - Stat
+
+"stat.name" = "Name: ";
+"stat.value" = "Value: ";
+"stat.effor" = "Effort: ";
+
+// MARK: - Type
+
+"type.name" = "Name: ";
+"type.slot" = "Slot: ";

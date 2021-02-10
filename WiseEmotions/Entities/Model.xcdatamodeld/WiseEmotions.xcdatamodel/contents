@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="PokemonEntity" representedClassName="PokemonEntity" syncable="YES">
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="imageLink" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <relationship name="shortStats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ShortStatEntity" inverseName="pokemon" inverseEntity="ShortStatEntity"/>
+        <relationship name="shortTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ShortTypeEntity" inverseName="pokemon" inverseEntity="ShortTypeEntity"/>
+        <relationship name="stats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="StatEntity" inverseName="pokemon" inverseEntity="StatEntity"/>
+        <relationship name="types" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TypeEntity" inverseName="pokemon" inverseEntity="TypeEntity"/>
+    </entity>
+    <entity name="ShortStatEntity" representedClassName="ShortStatEntity" syncable="YES">
+        <attribute name="effort" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="link" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PokemonEntity" inverseName="shortStats" inverseEntity="PokemonEntity"/>
+    </entity>
+    <entity name="ShortTypeEntity" representedClassName="ShortTypeEntity" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String"/>
+        <attribute name="link" attributeType="String"/>
+        <attribute name="slot" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PokemonEntity" inverseName="shortTypes" inverseEntity="PokemonEntity"/>
+    </entity>
+    <entity name="StatEntity" representedClassName="StatEntity" syncable="YES">
+        <attribute name="effort" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
+        <attribute name="link" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="value" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PokemonEntity" inverseName="stats" inverseEntity="PokemonEntity"/>
+    </entity>
+    <entity name="TypeEntity" representedClassName="TypeEntity" syncable="YES">
+        <attribute name="id" attributeType="String"/>
+        <attribute name="link" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="slot" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PokemonEntity" inverseName="types" inverseEntity="PokemonEntity"/>
+    </entity>
+    <elements>
+        <element name="PokemonEntity" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="ShortStatEntity" positionX="-45" positionY="45" width="128" height="104"/>
+        <element name="ShortTypeEntity" positionX="-27" positionY="81" width="128" height="89"/>
+        <element name="StatEntity" positionX="-63" positionY="18" width="128" height="119"/>
+        <element name="TypeEntity" positionX="-9" positionY="90" width="128" height="104"/>
+    </elements>
+</model>
