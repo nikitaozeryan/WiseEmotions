@@ -2,10 +2,6 @@
 
 # Libraries:
 
-## Alamofire
-
-Used to connect with API
-
 ## ReactiveSwift, ReactiveCocoa
 
 ReactiveSwift offers composable, declarative, and flexible primitives that are built around the grand concept of streams of values over time.
