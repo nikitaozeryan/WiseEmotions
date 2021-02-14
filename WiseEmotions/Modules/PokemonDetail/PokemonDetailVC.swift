@@ -49,6 +49,13 @@ final class PokemonDetailVC: BaseVC, ViewModelContainer {
         PokemonDetailView(dataSource: self, delegate: self)
     }()
     
+    private lazy var collectionViewLayout: UICollectionViewFlowLayout = {
+        var layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: screenWidth / 3 - offset * 2, height: screenWidth / 3 - offset * 2)
+        layout.minimumInteritemSpacing = offset
+        layout.scrollDirection = .horizontal
+        return layout
+    }()
     
     // MARK: - Life Cycle
     
@@ -86,11 +93,8 @@ extension PokemonDetailVC: UITableViewDataSource {
         guard let section = Section(rawValue: indexPath.section) else { return UITableViewCell() }
         switch section {
         case .image:
-            let media = viewModel.pokemon.imageURL.flatMap {
-                viewModel.useCases.download.addDownload(from: $0, ownerID: viewModel.pokemon.id)
-            }
-            let cell = tableView.dequeueReusableCell(cellClass: PokemonAvatarTVC.self)
-            cell.configure(with: media)
+            let cell = tableView.dequeueReusableCell(cellClass: PokemonAvatarsTVC.self)
+            cell.configure(with: self, layout: collectionViewLayout)
             return cell
         case .stats:
             let cell = tableView.dequeueReusableCell(cellClass: StatTVC.self)
@@ -132,5 +136,22 @@ extension PokemonDetailVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard let section = Section(rawValue: indexPath.section) else { return UITableView.automaticDimension }
         return section.cellHeight
+    }
+}
+
+
+// MARK: - UICollectionViewDataSource
+
+extension PokemonDetailVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        viewModel.pokemon.imageURLS.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCVC.reuseIdentifier, for: indexPath) as? ImageCVC else { return UICollectionViewCell() }
+        let media = viewModel.useCases.download.add(from: viewModel.pokemon.imageURLS[indexPath.item],
+                                                            ownerID: viewModel.pokemon.id)
+        cell.configure(with: media)
+        return cell
     }
 }

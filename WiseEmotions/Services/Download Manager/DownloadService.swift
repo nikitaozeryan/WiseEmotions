@@ -22,7 +22,7 @@ final class DownloadService: DownloadUseCase {
     // MARK: - Public Interactions
     
     @discardableResult
-    func addDownload(from url: URL, ownerID: Int64) -> Media? {
+    func add(from url: URL, ownerID: Int64) -> Media? {
         
         let retVal = Media(url: url, ownerID: ownerID)
         if let media = downloads.first(where: { $0 == retVal }) {
@@ -31,18 +31,18 @@ final class DownloadService: DownloadUseCase {
             } else if media.status == .completed {
                 return media
             } else {
-                self.startDownload(for: retVal)
+                self.start(for: retVal)
                 return media
             }
         } else {
             downloads.append(retVal)
-            self.startDownload(for: retVal)
+            self.start(for: retVal)
             return retVal
         }
     }
     
     @discardableResult
-    func startDownload(for media: Media) -> Bool {
+    func start(for media: Media) -> Bool {
         guard media.status.canStart else { return false }
         
         guard let cachedImage = imageCache.object(forKey: media.url.absoluteString as NSString) else {
@@ -60,7 +60,7 @@ final class DownloadService: DownloadUseCase {
     }
     
     @discardableResult
-    func cancelDownload(for media: Media) -> Bool {
+    func cancel(for media: Media) -> Bool {
         
         guard media.status.canCancel else { return false }
         

@@ -3,6 +3,7 @@
     <entity name="PokemonEntity" representedClassName="PokemonEntity" syncable="YES">
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="imageLink" optional="YES" attributeType="String"/>
+        <attribute name="imageLinks" optional="YES" attributeType="Transformable"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
         <relationship name="shortStats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ShortStatEntity" inverseName="pokemon" inverseEntity="ShortStatEntity"/>
@@ -39,7 +40,7 @@
         <relationship name="pokemon" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PokemonEntity" inverseName="types" inverseEntity="PokemonEntity"/>
     </entity>
     <elements>
-        <element name="PokemonEntity" positionX="-63" positionY="-18" width="128" height="149"/>
+        <element name="PokemonEntity" positionX="-63" positionY="-18" width="128" height="164"/>
         <element name="ShortStatEntity" positionX="-45" positionY="45" width="128" height="104"/>
         <element name="ShortTypeEntity" positionX="-27" positionY="81" width="128" height="89"/>
         <element name="StatEntity" positionX="-63" positionY="18" width="128" height="119"/>

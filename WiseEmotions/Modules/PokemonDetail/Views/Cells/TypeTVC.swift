@@ -24,6 +24,7 @@ final class TypeTVC: UITableViewCell {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
     private lazy var slotDetailView: DetailView = {
         let view = DetailView(with: "Description", value: "Value")
         view.translatesAutoresizingMaskIntoConstraints = false

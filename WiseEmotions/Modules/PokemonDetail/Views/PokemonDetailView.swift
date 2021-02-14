@@ -20,7 +20,7 @@ final class PokemonDetailView: UIView {
                                                 right: .zero)
         
         tableView.register(DetailHeaderView.self)
-        tableView.register(PokemonAvatarTVC.self)
+        tableView.register(PokemonAvatarsTVC.self)
         tableView.register(StatTVC.self)
         tableView.register(TypeTVC.self)
         tableView.showsVerticalScrollIndicator = false

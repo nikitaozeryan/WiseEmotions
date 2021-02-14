@@ -88,12 +88,13 @@
 		8F79019025D96F6700BD0987 /* Network+URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F79018F25D96F6700BD0987 /* Network+URLSession.swift */; };
 		8F88232E25D4031900842DA2 /* ReactiveSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8F88232D25D4031900842DA2 /* ReactiveSwift */; };
 		8F8F9D0925D33B2600AC0B7E /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F9D0825D33B2600AC0B7E /* DetailHeaderView.swift */; };
-		8F8F9D1025D33E3700AC0B7E /* PokemonAvatarTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F9D0F25D33E3700AC0B7E /* PokemonAvatarTVC.swift */; };
+		8F8F9D1025D33E3700AC0B7E /* PokemonAvatarsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F9D0F25D33E3700AC0B7E /* PokemonAvatarsTVC.swift */; };
 		8F8F9D1825D33E6200AC0B7E /* PokemonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F9D1725D33E6200AC0B7E /* PokemonDetailView.swift */; };
 		8F8F9D1D25D340FA00AC0B7E /* StatTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F9D1C25D340FA00AC0B7E /* StatTVC.swift */; };
 		8F8F9D2225D3418800AC0B7E /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F9D2125D3418800AC0B7E /* DetailView.swift */; };
 		8F8F9D2A25D3605F00AC0B7E /* TypeTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8F9D2925D3605F00AC0B7E /* TypeTVC.swift */; };
 		8FABD2B125D2D2E3004D2FAC /* LoaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FABD2AF25D2D2E3004D2FAC /* LoaderFooterView.swift */; };
+		8FBE49D425D9913400F6BB94 /* ImageCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBE49D325D9913400F6BB94 /* ImageCVC.swift */; };
 		8FD57DFA25D12BF6006205BE /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD57DF925D12BF6006205BE /* BaseModel.swift */; };
 		8FD57E0425D12CF4006205BE /* InformationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD57E0225D12CF4006205BE /* InformationUseCase.swift */; };
 		8FD57E0525D12CF4006205BE /* InformationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD57E0325D12CF4006205BE /* InformationService.swift */; };
@@ -210,12 +211,13 @@
 		8F77FCD825D2A272005A29D5 /* PokemonTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTVC.swift; sourceTree = "<group>"; };
 		8F79018F25D96F6700BD0987 /* Network+URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Network+URLSession.swift"; sourceTree = "<group>"; };
 		8F8F9D0825D33B2600AC0B7E /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
-		8F8F9D0F25D33E3700AC0B7E /* PokemonAvatarTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAvatarTVC.swift; sourceTree = "<group>"; };
+		8F8F9D0F25D33E3700AC0B7E /* PokemonAvatarsTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAvatarsTVC.swift; sourceTree = "<group>"; };
 		8F8F9D1725D33E6200AC0B7E /* PokemonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailView.swift; sourceTree = "<group>"; };
 		8F8F9D1C25D340FA00AC0B7E /* StatTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatTVC.swift; sourceTree = "<group>"; };
 		8F8F9D2125D3418800AC0B7E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8F8F9D2925D3605F00AC0B7E /* TypeTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeTVC.swift; sourceTree = "<group>"; };
 		8FABD2AF25D2D2E3004D2FAC /* LoaderFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoaderFooterView.swift; sourceTree = "<group>"; };
+		8FBE49D325D9913400F6BB94 /* ImageCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCVC.swift; sourceTree = "<group>"; };
 		8FD57DF925D12BF6006205BE /* BaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
 		8FD57E0225D12CF4006205BE /* InformationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationUseCase.swift; sourceTree = "<group>"; };
 		8FD57E0325D12CF4006205BE /* InformationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationService.swift; sourceTree = "<group>"; };
@@ -693,9 +695,10 @@
 		8F8F9D0E25D33DF500AC0B7E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				8F8F9D0F25D33E3700AC0B7E /* PokemonAvatarTVC.swift */,
+				8F8F9D0F25D33E3700AC0B7E /* PokemonAvatarsTVC.swift */,
 				8F8F9D1C25D340FA00AC0B7E /* StatTVC.swift */,
 				8F8F9D2925D3605F00AC0B7E /* TypeTVC.swift */,
+				8FBE49D325D9913400F6BB94 /* ImageCVC.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -897,7 +900,7 @@
 				8F06BA6C25D2FF4400234A77 /* ShortStat+Response.swift in Sources */,
 				8F74657425D01A9000E166FC /* BackgroundWorker.swift in Sources */,
 				8F06B9FB25D2F73F00234A77 /* Type+Response.swift in Sources */,
-				8F8F9D1025D33E3700AC0B7E /* PokemonAvatarTVC.swift in Sources */,
+				8F8F9D1025D33E3700AC0B7E /* PokemonAvatarsTVC.swift in Sources */,
 				8F74657125D01A9000E166FC /* LocalIdProvider.swift in Sources */,
 				8F74657625D01A9000E166FC /* DatabaseRepresentable.swift in Sources */,
 				8F7466E425D0565700E166FC /* AppCoordinator.swift in Sources */,
@@ -937,6 +940,7 @@
 				8F06B9C325D2EDBA00234A77 /* Stat.swift in Sources */,
 				8F7465C725D01A9000E166FC /* Reactive+UIView.swift in Sources */,
 				8F06BA7325D2FF7E00234A77 /* ShortType.swift in Sources */,
+				8FBE49D425D9913400F6BB94 /* ImageCVC.swift in Sources */,
 				8F6224D425D97B34006E7C0A /* APIPageResponse.swift in Sources */,
 				8F7466F925D056BF00E166FC /* Coordinator.swift in Sources */,
 				8F06BA0E25D2F7C800234A77 /* CDShortStat.swift in Sources */,

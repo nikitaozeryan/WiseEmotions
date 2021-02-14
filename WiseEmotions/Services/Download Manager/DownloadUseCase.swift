@@ -9,11 +9,11 @@ import Foundation
 
 protocol DownloadUseCase {
     @discardableResult
-    func addDownload(from url: URL, ownerID: Int64) -> Media?
+    func add(from url: URL, ownerID: Int64) -> Media?
     
     @discardableResult
-    func startDownload(for media: Media) -> Bool
+    func start(for media: Media) -> Bool
     
     @discardableResult
-    func cancelDownload(for media: Media) -> Bool
+    func cancel(for media: Media) -> Bool
 }

@@ -1,15 +1,19 @@
 //
-//  PokemonAvatarTVC.swift
+//  ImageCVC.swift
 //  WiseEmotions
 //
-//  Created by Nikita Ozerian on 10.02.2021.
+//  Created by Nikita Ozerian on 14.02.2021.
 //
 
 import UIKit
 
-final class PokemonAvatarTVC: UITableViewCell {
+final class ImageCVC: UICollectionViewCell {
     
     // MARK: - Properties
+    
+    static let reuseIdentifier = String(describing: ImageCVC.self)
+    
+    // MARK: - Private properties
     
     private var media: Media?
     
@@ -25,8 +29,8 @@ final class PokemonAvatarTVC: UITableViewCell {
     
     // MARK: - Lifecycle
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         setup()
         setupConstraints()
@@ -50,24 +54,21 @@ final class PokemonAvatarTVC: UITableViewCell {
     
     private func setup() {
         contentView.addSubview(avatarImageView)
-        selectionStyle = .none
     }
     
     private func setupConstraints() {
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         let avatarImageViewConstraints = [
-            avatarImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: offset),
-            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: offset),
+            avatarImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             avatarImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             avatarImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            avatarImageView.heightAnchor.constraint(equalToConstant: defaultImageSize.height * 3),
-            avatarImageView.widthAnchor.constraint(equalToConstant: defaultImageSize.width * 3)
         ]
         NSLayoutConstraint.activate(avatarImageViewConstraints)
     }
 }
 
-extension PokemonAvatarTVC: MediaObserver {
+extension ImageCVC: MediaObserver {
     func media(_ media: Media, didUpdateStatus status: Media.Status) {
         guard media == self.media else { return }
         switch status {

@@ -99,7 +99,7 @@ extension PokemonVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let pokemonEntity = pokemonsFRC?.object(at: indexPath) else { return UITableViewCell() }
         let media = pokemonEntity.imageLink.flatMap { URL(string: $0) }.flatMap {
-            viewModel.useCases.download.addDownload(from: $0, ownerID: pokemonEntity.id)
+            viewModel.useCases.download.add(from: $0, ownerID: pokemonEntity.id)
         }
         
         let cell = tableView.dequeueReusableCell(cellClass: PokemonTVC.self)
