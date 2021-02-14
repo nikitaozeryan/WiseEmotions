@@ -66,24 +66,24 @@ final class PokemonTVC: UITableViewCell {
     
     private func setupConstraints() {
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        let avatarImageViewTopConstraint = avatarImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: offset)
+        let avatarImageViewTopConstraint = avatarImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.safeAreaLayoutGuide.topAnchor, constant: offset)
         avatarImageViewTopConstraint.priority = .defaultLow
         let avatarImageViewConstraints = [
             avatarImageViewTopConstraint,
-            avatarImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: offset),
-            avatarImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            avatarImageView.leftAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leftAnchor, constant: offset),
+            avatarImageView.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
             avatarImageView.heightAnchor.constraint(equalToConstant: defaultImageSize.height),
             avatarImageView.widthAnchor.constraint(equalToConstant: defaultImageSize.width)
         ]
         NSLayoutConstraint.activate(avatarImageViewConstraints)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        let titleLabelTopConstraint = avatarImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.topAnchor, constant: offset)
+        let titleLabelTopConstraint = avatarImageView.topAnchor.constraint(greaterThanOrEqualTo: contentView.safeAreaLayoutGuide.topAnchor, constant: offset)
         titleLabelTopConstraint.priority = .defaultHigh
         let titleLabelConstraints = [
-            titleLabel.leftAnchor.constraint(equalTo: avatarImageView.rightAnchor, constant: offset),
-            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: offset),
-            titleLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            titleLabel.leftAnchor.constraint(equalTo: avatarImageView.safeAreaLayoutGuide.rightAnchor, constant: offset),
+            titleLabel.rightAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.rightAnchor, constant: offset),
+            titleLabel.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
             titleLabelTopConstraint
         ]
         NSLayoutConstraint.activate(titleLabelConstraints)

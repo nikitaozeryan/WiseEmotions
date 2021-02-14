@@ -59,10 +59,10 @@ final class ImageCVC: UICollectionViewCell {
     private func setupConstraints() {
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         let avatarImageViewConstraints = [
-            avatarImageView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            avatarImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            avatarImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            avatarImageView.leftAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leftAnchor),
+            avatarImageView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            avatarImageView.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
+            avatarImageView.centerXAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerXAnchor),
         ]
         NSLayoutConstraint.activate(avatarImageViewConstraints)
     }

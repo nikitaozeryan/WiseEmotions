@@ -67,10 +67,10 @@ final class StatTVC: UITableViewCell {
     private func setupConstraints() {
         infoStackView.translatesAutoresizingMaskIntoConstraints = false
         let infoStackViewConstraints = [
-            infoStackView.leftAnchor.constraint(equalTo: leftAnchor),
-            infoStackView.topAnchor.constraint(equalTo: topAnchor, constant: offset),
-            infoStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            infoStackView.centerYAnchor.constraint(equalTo: centerYAnchor)
+            infoStackView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
+            infoStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: offset),
+            infoStackView.centerXAnchor.constraint(equalTo: safeAreaLayoutGuide.centerXAnchor),
+            infoStackView.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor)
         ]
         NSLayoutConstraint.activate(infoStackViewConstraints)
     }

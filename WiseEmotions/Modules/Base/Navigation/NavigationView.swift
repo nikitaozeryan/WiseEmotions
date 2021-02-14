@@ -52,23 +52,23 @@ class NavigationView: UIView {
         let navigationBar = navigationController.navigationBar
         
         if self.top == nil {
-            top = with(topAnchor.constraint(equalTo: navigationController.view.topAnchor)) {
+            top = with(topAnchor.constraint(equalTo: navigationController.view.safeAreaLayoutGuide.topAnchor)) {
                 $0.priority = UILayoutPriority(999)
                 $0.isActive = true
             }
         }
         if self.leading == nil {
-            leading = with(leadingAnchor.constraint(equalTo: navigationBar.leadingAnchor)) {
+            leading = with(leadingAnchor.constraint(equalTo: navigationBar.safeAreaLayoutGuide.leadingAnchor)) {
                 $0.isActive = true
             }
         }
         if self.bottom == nil {
-            bottom = with(bottomAnchor.constraint(equalTo: navigationBar.bottomAnchor)) {
+            bottom = with(bottomAnchor.constraint(equalTo: navigationBar.safeAreaLayoutGuide.bottomAnchor)) {
                 $0.isActive = true
             }
         }
         if self.trailing == nil {
-            trailing = with(trailingAnchor.constraint(equalTo: navigationBar.trailingAnchor)) {
+            trailing = with(trailingAnchor.constraint(equalTo: navigationBar.safeAreaLayoutGuide.trailingAnchor)) {
                 $0.isActive = true
             }
         }

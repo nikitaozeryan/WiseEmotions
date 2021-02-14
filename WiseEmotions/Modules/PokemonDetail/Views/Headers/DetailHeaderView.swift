@@ -49,9 +49,9 @@ final class DetailHeaderView: UITableViewHeaderFooterView {
     private func setupConstraints() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: offset),
-            titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: offset)
+            titleLabel.centerYAnchor.constraint(equalTo: safeAreaLayoutGuide.centerYAnchor),
+            titleLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: offset),
+            titleLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: offset)
         ]
         NSLayoutConstraint.activate(constraints)
     }

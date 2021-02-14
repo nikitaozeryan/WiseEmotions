@@ -60,10 +60,10 @@ final class PokemonView: UIView {
     private func setupConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         let constraints = [
-            tableView.topAnchor.constraint(equalTo: topAnchor, constant: offset),
-            tableView.leftAnchor.constraint(equalTo: leftAnchor, constant: offset),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: offset),
-            tableView.rightAnchor.constraint(equalTo: rightAnchor, constant: offset)
+            tableView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: offset),
+            tableView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: offset),
+            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: offset),
+            tableView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: offset)
         ]
         NSLayoutConstraint.activate(constraints)
     }

@@ -64,17 +64,17 @@ final class DetailView: UIView {
     
     private func setupConstraints() {
         let descriptionLabelConstraints = [
-            descriptionLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: offset),
-            descriptionLabel.topAnchor.constraint(equalTo: topAnchor),
+            descriptionLabel.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: offset),
+            descriptionLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             descriptionLabel.heightAnchor.constraint(equalToConstant: C.labelHeight),
-            descriptionLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+            descriptionLabel.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ]
         NSLayoutConstraint.activate(descriptionLabelConstraints)
         
         let valueLabelConstraints = [
-            valueLabel.leftAnchor.constraint(equalTo: descriptionLabel.rightAnchor, constant: offset),
-            valueLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: offset),
-            valueLabel.centerYAnchor.constraint(equalTo: descriptionLabel.centerYAnchor),
+            valueLabel.leftAnchor.constraint(equalTo: descriptionLabel.safeAreaLayoutGuide.rightAnchor, constant: offset),
+            valueLabel.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor, constant: offset),
+            valueLabel.centerYAnchor.constraint(equalTo: descriptionLabel.safeAreaLayoutGuide.centerYAnchor),
             valueLabel.heightAnchor.constraint(equalToConstant: C.labelHeight)
         ]
         NSLayoutConstraint.activate(valueLabelConstraints)
