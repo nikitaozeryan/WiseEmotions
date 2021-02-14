@@ -77,31 +77,6 @@ final class CoreDataDatabase {
         }
     }
     
-    func performWrite<Input: CoreDataPersistable>(_ object: Input) -> SignalProducer<Input, AppError> {
-        contextProducer.attemptMap({ context -> Input in
-            let entity = try context.fetchOrCreate(for: object)
-            try object.update(entity)
-            if context.hasChanges {
-                try context.save()
-            }
-            return object
-        })
-    }
-
-    func performWrite<Input: Collection>(_ collection: Input)
-        -> SignalProducer<Input, AppError> where Input.Element: CoreDataPersistable {
-        contextProducer.attemptMap({ context -> Input in
-            try collection.forEach { object in
-                let entity = try context.fetchOrCreate(for: object)
-                try object.update(entity)
-            }
-            if context.hasChanges {
-                try context.save()
-            }
-            return collection
-        })
-    }
-    
     func performToViewContext<Output>(_ action: @escaping (NSManagedObjectContext) throws -> Output )
         -> AsyncTask<Output> {
             viewContextProducer.attemptMap {

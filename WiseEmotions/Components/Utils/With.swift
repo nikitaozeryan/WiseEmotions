@@ -14,14 +14,3 @@ public func with<T>(_ value: T,
     try builder(&mutableValue)
     return mutableValue
 }
-
-@discardableResult
-public func withNonNil<T: OptionalProtocol>(_ value: T,
-                                            _ builder: (inout T.Wrapped) throws -> Void) rethrows -> T {
-    if var mutableValue = value.optional {
-        try builder(&mutableValue)
-        return T(reconstructing: mutableValue)
-    } else {
-        return value
-    }
-}

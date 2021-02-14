@@ -20,7 +20,3 @@ extension CoreDataPersistable {
         return NSPredicate(format: "%K == %@", argumentArray: [ManagedObject.primaryKey, primaryKeyValue])
     }
 }
-
-extension CoreDataPersistable where Self: Identifiable {
-    var primaryKeyValue: Any { return id.value }
-}

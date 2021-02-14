@@ -39,17 +39,7 @@ class BaseNavigationVC: UINavigationController {
     override func loadView() {
         super.loadView()
         
-        navigationBar.barTintColor = .clear
-        navigationBar.tintColor = .white
-        navigationBar.barStyle = .black
-        navigationBar.isTranslucent = true
         delegate = self
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setupController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,30 +69,13 @@ class BaseNavigationVC: UINavigationController {
     
     // MARK: - Private
     
-    private func setupController() {
-        let image = UIImage()
-        navigationBar.setBackgroundImage(image, for: .default)
-        navigationBar.shadowImage = image
-        
-        if #available(iOS 13.0, *) {
-            let navBarAppearance = UINavigationBarAppearance()
-            navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.blue]
-            navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.blue]
-            navigationBar.standardAppearance = navBarAppearance
-            navigationBar.scrollEdgeAppearance = navBarAppearance
-        } else {
-            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.blue]
-        }
-        
-        delegate = self
-    }
-    
     private func setupBackButtonStyle(for viewController: UIViewController) {
         CATransaction.begin()
         let topItem = navigationBar.topItem
         navigationBar.backIndicatorImage = nil
         navigationBar.backIndicatorTransitionMaskImage = nil
         let backButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+        backButtonItem.tintColor = .systemYellow
         topItem?.backBarButtonItem = backButtonItem
         CATransaction.commit()
     }

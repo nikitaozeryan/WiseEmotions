@@ -35,21 +35,24 @@ final class PokemonService: PokemonUseCase {
     // MARK: - PokemonUseCase
     
     func fetchPokemonList(with limitOffset: LimitOffset) -> AsyncTask<PokemonsPage> {
-        network
-            .reactive
-            .request(API.Pokemons.fetch(limitOffset: limitOffset))
-            .decode(APIPageResponse<[BaseModel.Response]>.self)
-            .map { ($0.results.compactMap(BaseModel.init), LimitOffset(offset: limitOffset.offset + limitOffset.limit,
-                                                                       limit: limitOffset.limit,
-                                                                       total: ($0.count ?? 1) - 1)) }
-            .flatMap(.latest) { [unowned self] page -> AsyncTask<PokemonsPage> in
-                let models = page.0.chunked(into: LimitOffset.defaultLimit)
-                return SignalProducer(models)
-                    .flatMap(.concurrent(limit: C.limitOfConcurrentListRequests), self.fetchPokemons)
-                    .collect()
-                    .flatten()
-                    .map { ($0, page.1) }
-            }
+        switch request(by: PokemonsAPI.fetchPath, parameters: limitOffset.parameters) {
+        case .success(let request):
+            return network.request(with: request,
+                                   objectType: APIPageResponse<[BaseModel.Response]>.self)
+                .map { ($0.results.compactMap(BaseModel.init), LimitOffset(offset: limitOffset.offset + limitOffset.limit,
+                                                                           limit: limitOffset.limit,
+                                                                           total: ($0.count ?? 1) - 1)) }
+                .flatMap(.latest) { [unowned self] page -> AsyncTask<PokemonsPage> in
+                    let models = page.0.chunked(into: LimitOffset.defaultLimit)
+                    return SignalProducer(models)
+                        .flatMap(.concurrent(limit: C.limitOfConcurrentListRequests), self.fetchPokemons)
+                        .collect()
+                        .flatten()
+                        .map { ($0, page.1) }
+                }
+        case .failure(let error):
+            return .init(error: error)
+        }
     }
     
     func pokemonsFetchRequest() -> NSFetchRequest<PokemonEntity> {
@@ -86,14 +89,14 @@ final class PokemonService: PokemonUseCase {
                                                                               with: PokemonEntity
                                                                                 .findPredicate(id: pokemon.id))
                                 try pokemon.update(pokemonEntity)
-                                
+
                             try info.stats.forEach {
                                 try handle($0, in: context, to: pokemonEntity)
                             }
                             try info.types.forEach {
                                 try handle($0, in: context, to: pokemonEntity)
                             }
-                            
+
                             self.save(context)
                             return Pokemon(from: pokemonEntity)
                         }
@@ -126,27 +129,33 @@ final class PokemonService: PokemonUseCase {
     }
     
     private func fetchPokemon(by baseModel: BaseModel) -> AsyncTask<Pokemon> {
-        network
-            .reactive
-            .request(API.Pokemons.fetchPokemon(url: baseModel.url))
-            .decode(Pokemon.Response.self)
-            .map(Pokemon.init)
+        switch request(by: baseModel.url) {
+        case .success(let request):
+            return network.request(with: request, objectType: Pokemon.Response.self)
+                .map(Pokemon.init)
+        case .failure(let error):
+            return .init(error: error)
+        }
     }
     
     private func fetchStat(by model: ShortStatWithLink) -> AsyncTask<Stat> {
-        network
-            .reactive
-            .request(API.Information.fetchStat(url: model.link))
-            .decode(Stat.Response.self)
-            .map { Stat(from: $0, shortStat: model.shortStat, pokemonID: model.pokemonID) }
+        switch request(by: model.link) {
+        case .success(let request):
+            return network.request(with: request, objectType: Stat.Response.self)
+                .map { Stat(from: $0, shortStat: model.shortStat, pokemonID: model.pokemonID) }
+        case .failure(let error):
+            return .init(error: error)
+        }
     }
     
     private func fetchType(by model: ShortTypeWithLink) -> AsyncTask<Type> {
-        network
-            .reactive
-            .request(API.Information.fetchType(url: model.link))
-            .decode(Type.Response.self)
-            .map { Type(from: $0, shortType: model.shortType, pokemonID: model.pokemonID) }
+        switch request(by: model.link) {
+        case .success(let request):
+            return network.request(with: request, objectType: Type.Response.self)
+                .map { Type(from: $0, shortType: model.shortType, pokemonID: model.pokemonID) }
+        case .failure(let error):
+            return .init(error: error)
+        }
     }
     
     private func savePokemons(_ pokemons: [Pokemon]) -> AsyncTask<Void> {

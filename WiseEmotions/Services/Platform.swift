@@ -24,10 +24,7 @@ final class Platform: UseCasesProvider {
     // MARK: - Lifecycle
     
     init() {
-        let plugins: [NetworkPlugin] = [APIErrorPlugin()]
-        
-        network = Network(baseURL: baseURL,
-                          plugins: plugins)
+        network = NetworkURLSession()
         database = CoreDataDatabase()
         pokemon = PokemonService(network: network, database: database)
         information = InformationService(network: network)

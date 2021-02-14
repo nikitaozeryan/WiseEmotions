@@ -15,9 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private lazy var platform = Platform()
     private lazy var appCoordinator = AppCoordinator(useCases: self.platform)
     
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = appCoordinator.window
         return true
     }

@@ -14,14 +14,6 @@ protocol Persistable {
     func update(_ object: ManagedObject, context: Context) throws
 }
 
-extension Persistable
-    where
-    Self: Identifiable,
-    Self.Owner: Identifiable
-{
-    var primaryKey: Any { return id.value }
-}
-
 extension Persistable where Context == Void {
     func update(_ object: ManagedObject) throws {
         try update(object, context: ())

@@ -19,6 +19,7 @@ final class AppCoordinator {
     private lazy var showSuccessedConfirm: Bool = false
     
     // MARK: - Setup
+    
     init(useCases: UseCasesProvider) {
         self.useCases = useCases
         

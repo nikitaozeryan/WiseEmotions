@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct LimitOffset: RequestParams {
+struct LimitOffset {
     static let defaultLimit = 20
 
     enum CodingKeys: String, CodingKey {
@@ -24,13 +24,7 @@ struct LimitOffset: RequestParams {
     
     var hasMore: Bool { total.flatMap { $0 > offset } ?? true }
     var isFirstPage: Bool { offset == 0 }
-    var parameters: [String: Any] { [CodingKeys.offset.stringValue: offset, CodingKeys.limit.stringValue: limit] }
-    var builder: Parameters {
-        Parameters {
-            $0.limit <- limit
-            $0.offset <- offset
-        }
-    }
+    var parameters: [String: String] { [CodingKeys.offset.stringValue: "\(offset)", CodingKeys.limit.stringValue: "\(limit)"] }
     
     // MARK: - Lifecycle
 

@@ -28,31 +28,6 @@ class BaseVC: UIViewController {
                  then: reactive.viewDidLayoutSubviews.take(first: 1).map(value: true))
     
     var shouldHideBackBarButtonItem = false
-    
-    override func loadView() {
-        super.loadView()
-        
-        _ = isActive
-        _ = isVisible
-        _ = didLayout
-        
-        needsFetchData <~ UIApplication.shared.reactive.willResignActive.map(value: true)
-        
-        let becomeVisible = reactive.isVisible.filter { $0 }.map(value: ())
-        let didBecomeActive = UIApplication.shared.reactive
-            .didBecomeActive
-            .skip(until: becomeVisible)
-        Signal.merge(becomeVisible, didBecomeActive)
-            .withLatest(from: needsFetchData.combineLatest(with: isVisible))
-            .filter { (_, arg1) -> Bool in
-                let (subArg1, subArg2) = arg1
-                return subArg1 && subArg2
-        }.map { [needsFetchData] _ -> Void in
-            needsFetchData.value = false
-            return ()
-        }
-        .observe(fetchDataPipe.input)
-    }
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,15 +65,6 @@ class BaseVC: UIViewController {
     }
     
     // MARK: - Fetch Data
-    private let needsFetchData = MutableProperty(true)
-    private let fetchDataPipe = Signal<(), Never>.pipe()
-    
-    func setNeedsFetchData() {
-        needsFetchData.value = true
-    }
-    var fetchDataTrigger: Signal<(), Never> {
-        return fetchDataPipe.output
-    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 
 final class DownloadingOperation: Operation {
@@ -18,7 +17,6 @@ final class DownloadingOperation: Operation {
     
     // MARK: - Private Properties
     
-    private var request: Alamofire.Request?
     private var task: UIBackgroundTaskIdentifier?
     private let cache: NSCache<NSString, UIImage>
 
@@ -35,33 +33,21 @@ final class DownloadingOperation: Operation {
         media.status = .downloading(progress: 0)
 
         task = beginBackgroundTask()
-        AF.request(media.url)
-        .downloadProgress { progress in
-            guard self.isCancelled == false else {
-                self.cancel()
-                return
-            }
-
-            self.media.status = .downloading(progress: progress.fractionCompleted)
-        }
-
-        .responseData { response in
+        
+        URLSession.shared.dataTask(with: media.url) { data, response, error in
             self.task.flatMap { self.endBackgroundTask(taskID: $0) }
-            if let error = response.error {
+            if let error = error {
                 self.media.status = .failed(error: error)
                 return
-            }
-            
-            if case .success(let data) = response.result,
-               let image = UIImage(data: data) {
+            } else if
+                let data = data,
+                let image = UIImage(data: data) {
                 self.media.image = image
                 self.cache.setObject(image, forKey: self.media.url.absoluteString as NSString)
             }
             
             self.media.status = .completed
-        }
-
-        .resume()
+        }.resume()
     }
 
     override func cancel() {
@@ -69,7 +55,6 @@ final class DownloadingOperation: Operation {
         super.cancel()
 
         media.status = .cancelled
-        request?.cancel()
         task.flatMap { self.endBackgroundTask(taskID: $0)}
     }
     

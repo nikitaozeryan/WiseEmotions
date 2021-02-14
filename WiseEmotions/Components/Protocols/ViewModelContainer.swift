@@ -10,6 +10,7 @@ import ReactiveSwift
 import UIKit
 
 // MARK: - ViewModelContainer
+
 protocol ViewModelContainer: class {
     associatedtype ViewModel
     
@@ -52,6 +53,7 @@ extension ViewModelContainer where Self: NSObject {
 }
 
 // MARK: - ReusableViewModelContainer
+
 protocol ReusableViewModelContainer: class {
     associatedtype ViewModel
     

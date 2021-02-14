@@ -37,3 +37,4 @@ public func localizedString(key: String) -> String {
 public func configureID(from ownerID: Int64, string: String) -> String {
     "\(ownerID) \(string)"
 }
+
