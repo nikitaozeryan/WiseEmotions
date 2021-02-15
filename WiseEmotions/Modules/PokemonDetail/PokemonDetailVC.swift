@@ -34,7 +34,7 @@ final class PokemonDetailVC: BaseVC, ViewModelContainer {
         var cellHeight: CGFloat {
             switch self {
             case .image:
-                return UITableView.automaticDimension
+                return screenWidth / 3 - offset * 2
             case .stats:
                 return 116.0
             case .types:
