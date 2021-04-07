@@ -1,5 +1,27 @@
 # WiseEmotions
 
+## Task
+
+Develop one app showing a list of Pokémon with name and pictures.
+When user selects a Pokémon from the list, app must show details of the Pokémon such as name, picture(s), stats and type (fire, poison, etc.)
+
+- [x] Use Swift 5.3 
+- [x] Set target to SDK iOS 11 
+- [x] The UI must be created without the use of Xib or Storyboard, it must be dynamic and it must support both iPhone and iPad 
+- [x] Use no more than 2 (two) external libraries, and motivate their use 
+- [x] You can use CocoaPods, Carthage or SwiftPM; provide motivation for your choice (SwiftPM used)
+- [x] Use MVVM pattern
+- [x] Verify build completes successfully before considering the project complete!
+- [x] Publish code on a github public repository, or in a zip archive
+- [x] Create a README.md file collecting your implementation choices motivations
+
+## Task
+- [ ] Use at most 1 (one) external library (and motivate its use)
+- [x] Make the app work offline too 
+- [ ] Write Unit Tests 
+- [x] Customize project with something you believe can be useful for this app 
+
+
 # Libraries:
 
 ## ReactiveSwift, ReactiveCocoa
