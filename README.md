@@ -3,7 +3,8 @@
 ## Task
 
 Develop one app showing a list of Pokémon with name and pictures.
-When user selects a Pokémon from the list, app must show details of the Pokémon such as name, picture(s), stats and type (fire, poison, etc.)
+When user selects a Pokémon from the list, app must show details of the Pokémon such as name, picture(s), stats and type (fire, poison, etc.) 
+API are available here: https://pokeapi.co
 
 - [x] Use Swift 5.3 
 - [x] Set target to SDK iOS 11 
@@ -67,3 +68,9 @@ These primitives can be used to uniformly represent common Cocoa and generic pro
 1) It's easy to use
 
 2) Memory allocation
+
+## Preview
+
+<a href="https://user-images.githubusercontent.com/16369351/113874128-211c1100-97be-11eb-9af1-f4d86fd163f8.MOV" target="_blank">
+ <img src="https://user-images.githubusercontent.com/16369351/113874219-3c871c00-97be-11eb-8c29-33cdc0bdc650.jpeg" alt="Preview video" width="177.2" height="384" border="10" />
+</a>
